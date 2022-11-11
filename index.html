@@ -17,14 +17,12 @@
     <img class="profile__avatar" src="./images/avatar.webp" alt="туть должен быть аватар :(">
     <div class="profile__info">
       <p class="profile__first-name">Жак-Ив Кусто</p>
-      <button class="edit-button">
-        <img class="edit-button__image" src="./images/pencil.svg" alt="карандашик">
-      </button>
+      <input type="image" class="edit-button" src="./images/pencil.svg" width="7.5px" height="7.5px" alt="карандашик">
       <p class="profile__last-name">Исследователь океана</p>
     </div>
-    <button class="add-button">
-      <img class="add-button__image" src="./images/plus.svg" alt="плюсик">
-    </button>
+
+    <input type="image" class="add-button" src="./images/plus.svg" width="16px" height="16px" alt="плюсик">
+
   </section>
 
   <section class="elements">
@@ -94,16 +92,20 @@
   <p class="footer__text">© 2020 Mesto Russia</p>
 </footer>
 
+<section class="popup">
+  <button class="close-button">
+    <img class="close-button__image" src="./images/Close Icon.svg" alt="крестик">
+  </button>
 <form class="form">
   <h2 class="form__heading">Редактировать профиль</h2>
-  <fieldset class="form__first-name">
-    <input type="text" class="form__item_first-name">
+  <fieldset class="form__input-container">
+    <input type="text" class="form__item form__item_first-name"  placeholder="">
+    <input type="text" class="form__item form__item_last-name"  placeholder="">
   </fieldset>
-  <fieldset class="form__last-name">
-    <input type="text" class="form__item_last-name">
-  </fieldset>
-  <button type="submit">Сохранить</button>
+  <button type="submit" class="save-button">Сохранить</button>
 </form>
+</section>
+<script src="./scripts/script.js"></script>
 </body>
 
 </html>

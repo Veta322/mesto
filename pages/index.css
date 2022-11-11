@@ -74,36 +74,31 @@ width: 100%;
   box-sizing: border-box;
   border-radius:  50%;
   overflow: hidden;
+  margin-bottom: 22px;
 }
 
 .add-button{
 border: 2px solid #FFFFFF;
 border-radius: 2px;
-width: 100%;
 display: flex;
 justify-content: center;
+width: 100%;
+padding: 17px 0 17px 0;
 }
-
-.add-button__image{
-  width: 16px;
-  height: 16px;
-  margin: 17px 0;
-}
-
 
 .profile__info{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(min-content, max-content));
-  grid-template-rows: repeat(2, minmax(min-content, max-content));
+
+
+  display: flex;
   border: 1px solid pink;
   width: 100%;
   justify-content: center;
   justify-items: center;
-
+  flex-wrap: wrap;
 }
 
 .profile__last-name{
-  grid-row: span 2;
+
   border: 1px solid pink;
   font-style: normal;
 font-weight: 400;
@@ -111,6 +106,7 @@ font-size: 14px;
 line-height: 17px;
 text-align: center;
 margin: 0;
+width: 100%;
 }
 
 .profile__first-name{
@@ -123,20 +119,17 @@ line-height: 33px;
 text-align: center;
 }
 
-.edit-button__image{
-  border: 1px solid pink;
-  width: 7.5px;
-  height: 7.5px;
 
-}
 .edit-button{
   border: 1px solid pink;
-  width: 18px;
-  height: 18px;
-  display: flex;
+padding: 5.5px;
+display: flex;
 align-items: center;
 justify-content: center;
 margin: 8px 0 0 10px;
+position: sticky;
+right: 0;
+top:0;
 }
 
 .elements{
@@ -207,15 +200,17 @@ margin: 0;
 
 
 .form{
-position: fixed;
+
 width: 282px;
 height: 322px;
 background: #FFFFFF;
 box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
 border-radius: 10px;
 display: flex;
-justify-content: center;
+
 flex-direction: column;
+border: 1px solid pink;
+
 }
 
 .form__heading{
@@ -224,4 +219,78 @@ font-weight: 900;
 font-size: 18px;
 line-height: 22px;
 color: #000000;
+border: 1px solid pink;
+margin: 25px 22px 75px 22px;
 }
+
+.close-button{
+padding: 0;
+border: 1px solid pink;
+margin-bottom: 16px;
+}
+.popup{
+  width: 282px;
+  border: 1px solid pink;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: fixed;
+  top: 87px;
+  display: none;
+  margin: 0 auto;
+  align-self: center;
+}
+
+
+ .close-button__image{
+  width: 20px;
+  height: 20px;
+  user-select: none;
+ }
+
+
+
+ .form__item{
+  border: 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid #bcbcc4;
+  padding: 0;
+  width: 238px;
+  outline: none;
+  padding-bottom: 13px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+ }
+
+
+ .save-button{
+width: 238px;
+height: 46px;
+background: #000000;
+border-radius: 2px;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+color: #FFFFFF;
+margin: 45px 22px 25px 22px;
+ }
+
+ .form__input-container{
+  border: 0;
+  margin: 0 22px;
+  border: 1px solid pink;
+  padding: 0;
+ }
+
+ .form__item_first-name{
+  margin-bottom: 30px;
+ }
+
+
+ .popup__open{
+  display: flex;
+ }
