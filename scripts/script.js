@@ -27,8 +27,6 @@ function formSubmitHandler (evt) {
 
     // Получите значение полей  lastNameInput и FirstNameInput из свойства value
 
-    FirstNameInput.value('.profile__first-name');
-    LastNameInput.value('.profile__last-name');
 
     // Выберите элементы, куда должны быть вставлены значения полей
 
