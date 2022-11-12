@@ -2,7 +2,7 @@
 @import url(../vendor/fonts/fonts.css);
 
 
-.page{
+.page {
   background-color: black;
   font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
   color: #FFFFFF;
@@ -22,43 +22,46 @@
   -moz-text-size-adjust: 100%;
   border: 1px solid pink;
 }
-@media screen and (min-width: 984px){
-  .page{
-  max-width: 880px;
+
+@media screen and (min-width: 984px) {
+  .page {
+    max-width: 880px;
   }
-  }
-
-
-
-.header{
-border: 1px solid #545454;
-width: 100%;
 }
-@media screen and (min-width: 984px){
-  .header{
+
+
+
+.header {
+  border: 1px solid #545454;
+  width: 100%;
+}
+
+@media screen and (min-width: 984px) {
+  .header {
 
     margin: 45px 0 40px 0;
   }
-  }
+}
 
 
-.header__logo{
+.header__logo {
   border: 1px solid pink;
-  max-width: 103.74px;
-  max-height: 24.4px;
+  width: 104px;
+  height: 25px;
   margin: 28px 0 31.6px 27px;
 
 }
-@media screen and (min-width: 984px){
-  .header__logo{
+
+@media screen and (min-width: 984px) {
+  .header__logo {
     width: 142px;
     height: 33px;
     margin: 0 0 41px;
   }
-  }
+}
 
 
-.profile{
+.profile {
   margin: 42px 19px 36px;
   display: flex;
   flex-direction: column;
@@ -67,72 +70,110 @@ width: 100%;
   border: 1px solid pink;
 }
 
-.profile__avatar{
+@media screen and (min-width: 984px) {
+  .profile{
+   flex-direction: row;
+   justify-content: flex-start;
+   position: relative;
+  }
+}
+
+.profile__avatar {
   border: 1px solid pink;
   max-width: 120px;
   max-height: 120px;
   box-sizing: border-box;
-  border-radius:  50%;
+  border-radius: 50%;
   overflow: hidden;
   margin-bottom: 22px;
 }
 
-.add-button{
-border: 2px solid #FFFFFF;
-border-radius: 2px;
-display: flex;
-justify-content: center;
-width: 100%;
-padding: 17px 0 17px 0;
+.add-button {
+  border: 2px solid #FFFFFF;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 17px 0 17px 0;
 }
 
-.profile__info{
+@media screen and (min-width: 984px) {
+  .add-button{
+    width: 150px;
+    max-height: 50px;
+    padding: 14px 0;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.add-button:hover {
 
 
+  opacity: 0.6;
+}
+
+.profile__info {
+  position: relative;
   display: flex;
+
   border: 1px solid pink;
   width: 100%;
+
   justify-content: center;
   justify-items: center;
   flex-wrap: wrap;
+
+}
+@media screen and (min-width: 984px) {
+  .profile__info{
+    width: 336px;
+    height: 73px;
+
+  }
 }
 
-.profile__last-name{
+.profile__job {
 
   border: 1px solid pink;
   font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 17px;
-text-align: center;
-margin: 0;
-width: 100%;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  margin: 0;
+  width: 100%;
 }
 
-.profile__first-name{
+.profile__name {
   border: 1px solid pink;
-  margin:0 0 14px 0;
+  margin: 0 0 14px 0;
   font-style: normal;
-font-weight: 500;
-font-size: 27px;
-line-height: 33px;
-text-align: center;
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 33px;
+  text-align: center;
+
 }
 
 
-.edit-button{
+.edit-button {
   border: 1px solid pink;
-padding: 5.5px;
-display: flex;
-align-items: center;
-justify-content: center;
-margin: 8px 0 0 10px;
-position: sticky;
-right: 0;
-top:0;
+  padding: 5.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  position: absolute;
+  right: 19px;
+  top: 8px;
 }
 
-.elements{
+.edit-button:hover {
+  opacity: 0.6;
+}
+
+.elements {
   display: grid;
   grid-template-columns: auto;
   gap: 20px;
@@ -141,96 +182,104 @@ top:0;
   justify-items: center;
 }
 
-.element{
+.element {
   background: #FFFFFF;
-  overflow:hidden;
+  overflow: hidden;
   width: 282px;
   height: 361px;
   border-radius: 10px;
 
 }
 
-.element__image{
-width: 282px;
-height: 282px;
-object-fit:cover;
+.element__image {
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
 
 }
 
-.element__title{
+.element__title {
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
   color: #000000;
-  margin:  0 ;
+  margin: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
- .element__description{
+
+.element__description {
   display: flex;
   justify-content: space-between;
   border: 1px solid pink;
   margin: 25px 15px 31px 21px;
 
- }
+}
 
 
- .element__like{
+.element__like {
   width: 22px;
   height: 19px;
   margin: 5px 5px 0 0;
- }
+}
 
+.element__like:hover {
+  opacity: 0.5;
+}
 
-.footer{
+.footer {
   border: 1px solid pink;
   margin: 48px 19px 36px 19px;
 }
 
-.footer__text{
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 17px;
-color: #545454;
-margin: 0;
-}
-
-
-.form{
-
-width: 282px;
-height: 322px;
-background: #FFFFFF;
-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-border-radius: 10px;
-display: flex;
-
-flex-direction: column;
-border: 1px solid pink;
-
-}
-
-.form__heading{
+.footer__text {
   font-style: normal;
-font-weight: 900;
-font-size: 18px;
-line-height: 22px;
-color: #000000;
-border: 1px solid pink;
-margin: 25px 22px 75px 22px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #545454;
+  margin: 0;
 }
 
-.close-button{
-padding: 0;
-border: 1px solid pink;
-margin-bottom: 16px;
-}
-.popup{
+
+.form {
+
   width: 282px;
-  border: 1px solid pink;
+  height: 322px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  display: flex;
+
+  flex-direction: column;
+
+
+}
+
+.form__heading {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+
+  margin: 25px 22px 75px 22px;
+}
+
+.close-button {
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.close-button:hover {
+  opacity: 0.6;
+}
+
+.popup {
+  width: 282px;
+
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -242,15 +291,11 @@ margin-bottom: 16px;
 }
 
 
- .close-button__image{
-  width: 20px;
-  height: 20px;
-  user-select: none;
- }
 
 
 
- .form__item{
+
+.form__item {
   border: 0;
   box-sizing: border-box;
   border-bottom: 1px solid #bcbcc4;
@@ -262,35 +307,49 @@ margin-bottom: 16px;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
- }
+}
 
 
- .save-button{
-width: 238px;
-height: 46px;
-background: #000000;
-border-radius: 2px;
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 17px;
-text-align: center;
-color: #FFFFFF;
-margin: 45px 22px 25px 22px;
- }
+.save-button {
+  width: 238px;
+  height: 46px;
+  background: #000000;
+  border-radius: 2px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 45px 22px 25px 22px;
+}
 
- .form__input-container{
+
+
+.save-button:hover {
+  opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+.form__input-container {
   border: 0;
   margin: 0 22px;
-  border: 1px solid pink;
+
   padding: 0;
- }
+}
 
- .form__item_first-name{
+.form__item_name {
   margin-bottom: 30px;
- }
+}
 
 
- .popup__open{
+.popup__open {
   display: flex;
- }
+}
