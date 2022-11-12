@@ -1,0 +1,8 @@
+.close-button {
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.close-button:hover {
+  opacity: 0.6;
+}

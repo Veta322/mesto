@@ -1,0 +1,17 @@
+.save-button {
+  width: 238px;
+  height: 46px;
+  background: #000000;
+  border-radius: 2px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 45px 22px 25px 22px;
+}
+
+.save-button:hover {
+  opacity: 0.8;
+}
