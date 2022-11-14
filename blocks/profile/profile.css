@@ -10,7 +10,8 @@
   .profile {
     flex-direction: row;
     justify-content: flex-start;
-    position: relative;
+    justify-items: center;
     align-items: flex-start;
+
   }
 }

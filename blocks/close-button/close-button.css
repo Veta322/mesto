@@ -11,17 +11,6 @@
 
 @media screen and (min-width: 984px) {
   .close-button {
-    margin: 0;
-    position: absolute;
-    right: -38px;
-    top: -38px;
-
+    margin: 0 -40px 8px 0px;
   }
-}
-
-@media screen and (min-width: 984px) {
- .close-button__image{
-  width: 32px;
-  height: 32px;
- }
 }
