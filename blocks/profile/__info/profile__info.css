@@ -1,5 +1,4 @@
 .profile__info {
-  margin-left: 30px;
   display: grid;
   grid-template-columns: 18px 1fr 18px;
   text-align: center;
@@ -9,11 +8,12 @@
     ". name edit"
     ". job .";
 
-
 }
 
 @media screen and (min-width: 984px) {
   .profile__info {
+    margin-left: 30px;
+    margin-top: 22px;
     grid-template-columns: 18px 1fr 26px;
     column-gap: 19px;
     row-gap: 9px;

@@ -1,22 +1,24 @@
 .edit-button {
   border: 1px solid #FFFFFF;
-  padding: 5.5px;
+  width: 18px;
+  height: 18px;
+  grid-area: edit;
+  margin-top: 8px;
+  background: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  grid-area: edit;
-  margin-top: 8px;
 }
 
 .edit-button:hover {
   opacity: 0.6;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 984px) {
   .edit-button {
     margin-top: 15px;
-    width: 10px;
-    height: 10px;
-    padding: 7px;
+    width: 24px;
+    height: 24px;
   }
 }

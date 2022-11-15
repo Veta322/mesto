@@ -8,12 +8,16 @@
   justify-self: center;
   align-self: center;
   grid-area: name;
+  text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
 }
 
 @media screen and (min-width: 984px) {
   .profile__name {
     font-size: 42px;
     line-height: 48px;
-    margin: 0 0 16px 0;
+    margin: 0 0 7px 0;
   }
 }

@@ -1,6 +1,5 @@
 .form {
   width: 282px;
-  height: 322px;
   background: #FFFFFF;
   border-radius: 10px;
   display: flex;
@@ -10,7 +9,6 @@
 @media screen and (min-width: 984px) {
   .form {
     width: 430px;
-    height: 330px;
-    padding-left: 36px;
+    justify-content: center;
   }
 }

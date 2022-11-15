@@ -1,12 +1,13 @@
 .like {
   margin: 5px 5px 1px 0;
   border: 0;
-  background-color: #FFFFFF;
+  background: none;
   padding: 0;
 }
 
 .like:hover {
   opacity: 0.5;
+  cursor: pointer;
 }
 
 .like:active {
