@@ -1,4 +1,5 @@
 const popupElement = document.querySelector('.popup');
+const formElement = document.querySelector('.form');
 const popupCloseButtonElement = document.querySelector('.close-button');
 const popupOpenButtonElement = document.querySelector('.edit-button');
 const nameInput = document.querySelector('.form__item_type_name');
@@ -26,4 +27,4 @@ function formSubmitHandler(evt) {
   closePopup();
 }
 
-popupElement.addEventListener('submit', formSubmitHandler);
+formElement.addEventListener('submit', formSubmitHandler);
