@@ -1,4 +1,4 @@
-.edit-button {
+.profile__edit{
   border: 1px solid #FFFFFF;
   width: 18px;
   height: 18px;
@@ -10,12 +10,12 @@
   justify-content: center;
 }
 
-.edit-button:hover {
+.profile__edit:hover {
   opacity: 0.6;
 }
 
 @media screen and (min-width: 984px) {
-  .edit-button {
+  .profile__edit {
     margin-top: 15px;
     width: 24px;
     height: 24px;
