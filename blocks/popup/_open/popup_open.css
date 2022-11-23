@@ -1,4 +1,6 @@
 .popup_open {
-  display: flex;
-  flex-direction: column;
+  opacity: 1;
+  visibility: visible;
 }
+
+

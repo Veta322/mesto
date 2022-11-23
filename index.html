@@ -18,102 +18,45 @@
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <button class="button profile__edit" type="button">
-          <img class="button__edit" src="./images/pencil.svg" alt="карандашик">
+          <img class="profile__edit-icon" src="./images/pencil.svg" alt="карандашик">
         </button>
         <h2 class="profile__job">Исследователь океана</h2>
       </div>
 
       <button class="button profile__add" type="button">
-        <img class="button__add" src="./images/plus.svg" alt="плюсик">
+        <img class="profile__add-icon" src="./images/plus.svg" alt="плюсик">
       </button>
 
     </section>
 
     <section class="elements">
-
-
-
-
-      <div class="element">
-        <img class="element__image" src="./images/autumn.jpg" alt="туть должна быть фотокарточка :(">
-        <div class="element__description">
-          <h2 class="element__title">Осень</h2>
-          <button class="button element__like" type="button">
-            <img class="button__like" src="./images/heart.svg" alt="сердечко">
+      <template id="element">
+        <div class="element">
+          <button class="button element__delete" type="button">
+            <img class="element__delete-icon" src="./images/trash.svg" alt="мусорка">
           </button>
+          <img class="element__image" src="" alt="туть должна быть фотокарточка :(">
+          <div class="element__description">
+            <h2 class="element__title"></h2>
+            <button class="button element__like" type="button">
+              <img class="element__like-icon" src="./images/heart.svg" alt="сердечко">
+            </button>
+
+          </div>
         </div>
-      </div>
-
-
-
-      <div class="element">
-        <img class="element__image" src="./images/candle.jpg" alt="туть должна быть фотокарточка :(">
-        <div class="element__description">
-          <h2 class="element__title">Свеча</h2>
-          <button class="button element__like" type="button">
-            <img class="button__like" src="./images/heart.svg" alt="сердечко">
-          </button>
-        </div>
-      </div>
-
-
-
-      <div class="element">
-        <img class="element__image" src="./images/forest.jpg" alt="туть должна быть фотокарточка :(">
-        <div class="element__description">
-          <h2 class="element__title">Лес</h2>
-          <button class="button element__like" type="button">
-            <img class="button__like" src="./images/heart.svg" alt="сердечко">
-          </button>
-        </div>
-      </div>
-
-
-      <div class="element">
-        <img class="element__image" src="./images/frozen.jpg" alt="туть должна быть фотокарточка :(">
-        <div class="element__description">
-          <h2 class="element__title">Морозный шарик</h2>
-          <button class="button element__like" type="button">
-            <img class="button__like" src="./images/heart.svg" alt="сердечко">
-          </button>
-        </div>
-      </div>
-
-
-
-      <div class="element">
-        <img class="element__image" src="./images/sea.jpg" alt="туть должна быть фотокарточка :(">
-        <div class="element__description">
-          <h2 class="element__title">Море,бъющиеся о скалы</h2>
-          <button class="button element__like" type="button">
-            <img class="button__like" src="./images/heart.svg" alt="сердечко">
-          </button>
-        </div>
-      </div>
-
-
-
-      <div class="element">
-        <img class="element__image" src="./images/train.jpg" alt="туть должна быть фотокарточка :(">
-        <div class="element__description">
-          <h2 class="element__title">Трамвай</h2>
-          <button class="button element__like" type="button">
-            <img class="button__like" src="./images/heart.svg" alt="сердечко">
-          </button>
-        </div>
-      </div>
+      </template>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__text">© 2020 Mesto Russia</p>
   </footer>
 
-  <section class="popup">
+  <section class="popup popup-edit">
     <div class="popup__content">
-      <button class="button popup__close" type="button">
-        <img class="button__close" src="./images/Close.svg" alt="крестик">
+      <button class="button popup__close close-edit" type="button">
+        <img class="popup__close-icon" src="./images/Close.svg" alt="крестик">
       </button>
-      <form class="form" name="edit-info">
+      <form class="form form-edit" name="edit-info">
         <h2 class="form__heading">Редактировать профиль</h2>
         <fieldset class="form__input-container">
           <input type="text" class="form__item form__item_type_name" name="edit-name">
@@ -123,6 +66,36 @@
       </form>
     </div>
   </section>
+
+
+  <section class="popup popup-add">
+    <div class="popup__content">
+      <button class="button popup__close close-add" type="button">
+        <img class="popup__close-icon" src="./images/Close.svg" alt="крестик">
+      </button>
+      <form class="form form-add" name="add-content">
+        <h2 class="form__heading">Новое место</h2>
+        <fieldset class="form__input-container">
+          <input type="text" class="form__item form__item_type_title" name="add-title" placeholder="Название">
+          <input type="text" class="form__item form__item_type_url" name="add-pic" placeholder="Ссылка на картинку">
+        </fieldset>
+        <button type="submit" class="button popup__save">Создать</button>
+      </form>
+    </div>
+  </section>
+
+
+  <section class="popup popup-image">
+    <div class="popup__content popup__content_image">
+      <button class="button popup__close close-image" type="button">
+        <img class="popup__close-icon" src="./images/Close.svg" alt="крестик">
+      </button>
+      <div class="open-content">
+        <img class="open-content__image" src="" alt="туть должна быть фотокарточка :(">
+        <h2 class="open-content__title "></h2>
+      </div>
+  </section>
+
 
   <script src="./scripts/script.js"></script>
 </body>

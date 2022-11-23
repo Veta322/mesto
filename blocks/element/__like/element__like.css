@@ -9,7 +9,7 @@
   opacity: 0.5;
 }
 
-.element__like:active {
+.element__like-active {
   background-image: url("../../../images/Union.svg");
   opacity: 1;
   background-repeat: no-repeat;

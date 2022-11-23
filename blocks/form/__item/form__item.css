@@ -21,3 +21,12 @@
 .form__item:first-child {
   margin-bottom: 30px;
 }
+
+
+.form__item::placeholder {
+  color:rgba(196, 196, 196, 1);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  }

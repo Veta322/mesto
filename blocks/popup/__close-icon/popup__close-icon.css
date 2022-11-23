@@ -1,5 +1,5 @@
 @media screen and (min-width: 984px) {
-  .button__close {
+  .popup__close-icon{
     width: 32px;
     height: 32px;
   }

@@ -1,4 +1,5 @@
 .element {
+  position: relative;
   background: #FFFFFF;
   overflow: hidden;
   width: 282px;
