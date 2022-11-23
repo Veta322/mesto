@@ -91,7 +91,7 @@ popupCloseAdd.addEventListener('click', closePopupAdd);
 
 
 
-//копирование элементов template , реализация лайка и корзинки, открытие картинки. через условный оператор сохранение порядка в массиве
+//копирование элементов template и реализация рабочих кнопок
 function addPic(titleValue, picurlValue, isElementFromArray) {
 
   const ElementTemplate = document.querySelector('#element').content;
@@ -121,7 +121,7 @@ function addPic(titleValue, picurlValue, isElementFromArray) {
   if (isElementFromArray === true) {
     elements.append(elementCard);
   } else {
-    e
+
     elements.prepend(elementCard);
   }
 }
