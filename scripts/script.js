@@ -1,4 +1,3 @@
-const popup = document.querySelector('.popup');
 const popupElementEdit = document.querySelector('.popup-edit');
 const formElementEdit = document.querySelector('.form-edit');
 const popupOpenEdit = document.querySelector('.profile__edit');
@@ -17,6 +16,7 @@ const closeButtons = document.querySelectorAll('.popup__close');
 const elementTemplate = document.querySelector('#element').content;
 const titleInput = document.querySelector('.form__item_type_title');
 const urlInput = document.querySelector('.form__item_type_url');
+const popupContent = document.querySelector('.popup__content');
 
 const initialCards = [
   {
@@ -47,12 +47,29 @@ const initialCards = [
 
 //общая функция открытия
 function openPopup(popup) {
-  popup.classList.add('popup_open');
+   popup.classList.add('popup_open');
+   document.addEventListener('keydown', closePopupEsc);
+   popup.querySelector('.popup__content').addEventListener('click', closePopupOverley);
 }
+
 //общая функция закрытия
 function closePopup(popup) {
   popup.classList.remove('popup_open');
+  document.removeEventListener('keydown', closePopupEsc);
+  popup.querySelector('.popup__content').removeEventListener('click', closePopupOverley);
 }
+//закрытие по esc 
+function closePopupEsc(evt) {
+	if (evt.keyCode == 27)  {
+		closePopup(document.querySelector('.popup_open'));
+	}
+}
+//закрытие по оверлею
+function closePopupOverley(evt){
+  if (evt.target === evt.currentTarget){
+  closePopup(document.querySelector('.popup_open'));
+  }
+} 
 
 //открытие edit popup
 const openPopupEdit = function () {
@@ -62,13 +79,11 @@ const openPopupEdit = function () {
 }
 popupOpenEdit.addEventListener('click', openPopupEdit);
 
-
 //универсальный обработчик закрытия
 closeButtons.forEach((button) => {
   const popupClose = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popupClose));
 });
-
 
 //присвоение значений edit popup
 function handleProfileFormSubmit(evt) {
@@ -114,9 +129,9 @@ function createCard(titleValue, picurlValue) {
 function handleElementFormSubmit(evt) {
   evt.preventDefault();
   elements.prepend(createCard(titleInput.value, urlInput.value));
-  titleInput.value = '';
-  urlInput.value = '';
-  closePopup(popupElementAdd)
+  formElementAdd.reset();
+  closePopup(popupElementAdd);
+  //setSubmitButtonState(false);
 }
 
 formElementAdd.addEventListener('submit', handleElementFormSubmit);
