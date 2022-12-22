@@ -18,32 +18,6 @@ const titleInput = document.querySelector('.form__item_type_title');
 const urlInput = document.querySelector('.form__item_type_url');
 const popupContent = document.querySelector('.popup__content');
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
 
 //общая функция открытия
 function openPopup(popup) {
@@ -98,14 +72,17 @@ formElementEdit.addEventListener('submit', handleProfileFormSubmit);
 //открытие popupadd
 popupOpenAdd.addEventListener('click', () => openPopup(popupElementAdd));
 
+
+
 //копирование элементов template и реализация рабочих кнопок
 function createCard(titleValue, picurlValue) {
+  
   const elementCard = elementTemplate.querySelector('.element').cloneNode(true);
 
   elementCard.querySelector('.element__title').textContent = titleValue;
   elementCard.querySelector('.element__image').src = picurlValue;
   elementCard.querySelector('.element__image').alt = titleValue;
-
+  
   elementCard.querySelector('.element__like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__like-active');
   });
@@ -136,7 +113,19 @@ function handleElementFormSubmit(evt) {
 
 formElementAdd.addEventListener('submit', handleElementFormSubmit);
 
-//добавление карточек из массива
-initialCards.forEach(function (item) {
-  elements.append(createCard(item.name, item.link));
+import FormValidator from './FormValidator.js';
+
+const Config = ({
+  formSelector: '.form',
+  inputSelector: '.form__item',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__disabled',
+  inputErrorClass: 'form__item_error',
+  errorClass: 'popup__error_active',
 });
+
+const editValidator = new FormValidator (Config, formElementEdit);
+const addValidator = new FormValidator (Config, formElementAdd);
+
+editValidator.enableValidation();
+addValidator.enableValidation();
