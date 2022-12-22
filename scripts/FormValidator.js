@@ -35,14 +35,14 @@ _disabledPopupSubmitButton () {
   this._buttonElement.classList.add(this._setting.inactiveButtonClass);
   this._buttonElement.disabled = true;
 }
-
+//включение кнопки
 _enablePopupSubmitButton (){ 
   this._buttonElement.classList.remove(this._setting.inactiveButtonClass);
   this._buttonElement.disabled = false;
 } 
 
  
-//применение вкл  кнопки
+//применение вкл и выкл кнопки
 _toggleButtonState () {
   if (this._hasInvalidInput()) {
     this._disabledPopupSubmitButton ();
@@ -89,7 +89,7 @@ enableValidation = () => {
 
 
 };
-
+//экспорт
 export default FormValidator;
 
 
