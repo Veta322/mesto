@@ -56,7 +56,7 @@ function closePopup(popup) {
 }
 //закрытие по esc 
 function closePopupEsc(evt) {
-  if (evt.keyCode == 27) {
+  if (evt.key === 'Escape') {
     closePopup(document.querySelector('.popup_open'));
   }
 }
@@ -91,11 +91,24 @@ function handleProfileFormSubmit(evt) {
 
 formElementEdit.addEventListener('submit', handleProfileFormSubmit);
 
+function handleCardClick(title, image) {
+  const popupImage = document.querySelector('.popup-image');
+  const openImage = document.querySelector('.open-content__image');
+  const openTitle = document.querySelector('.open-content__title');
+  openImage.src = image;
+  openImage.alt = title;
+  openTitle.textContent = title;
+  openPopup(popupImage);
+};
 
+//активация лайка
+function handleToggleLike(evt) {
+  evt.target.classList.toggle('element__like-active');
+};
 
-
-
-
+function handleDeleteCard(card) {
+  card.remove();
+};
 
 //открытие add-form
 popupOpenAdd.addEventListener('click', function () {
@@ -108,7 +121,7 @@ popupOpenAdd.addEventListener('click', function () {
 function handleElementFormSubmit(evt) {
   evt.preventDefault();
 
-  createCard({ title: titleInput.value, image: urlInput.value })
+  elements.prepend(createCard({ title: titleInput.value, image: urlInput.value }));
   closePopup(popupElementAdd);
 }
 
@@ -118,20 +131,22 @@ formElementAdd.addEventListener('submit', handleElementFormSubmit);
 //импорт класса 
 import Card from './Card.js';
 //создание разметки карточки 
-const createCard = (item) => {
-  const card = new Card(item, '#element');
+
+function createCard(item) {
+  const card = new Card(item, '#element', handleCardClick, handleToggleLike, handleDeleteCard);
   const cardElement = card.generateCard();
-  elements.prepend(cardElement);
+  return cardElement;
+  
 }
 //присвоение значений из массива
-initialCards.forEach((item) => {
-  createCard(item);
+initialCards.forEach(function (item) {
+  elements.append(createCard(item));
 });
 
 //импорт класса
 import FormValidator from './FormValidator.js';
 //настройки
-const Config = ({
+const config = ({
   formSelector: '.form',
   inputSelector: '.form__item',
   submitButtonSelector: '.popup__save',
@@ -140,8 +155,8 @@ const Config = ({
   errorClass: 'popup__error_active',
 });
 //формы через класс
-const editValidator = new FormValidator(Config, formElementEdit);
-const addValidator = new FormValidator(Config, formElementAdd);
+const editValidator = new FormValidator(config, formElementEdit);
+const addValidator = new FormValidator(config, formElementAdd);
 
 editValidator.enableValidation();
 addValidator.enableValidation();
