@@ -12,7 +12,9 @@ const elements = document.querySelector('.elements');
 const closeButtons = document.querySelectorAll('.popup__close');
 const titleInput = document.querySelector('.form__item_type_title');
 const urlInput = document.querySelector('.form__item_type_url');
-
+const popupImage = document.querySelector('.popup-image');
+const openImage = document.querySelector('.open-content__image');
+const openTitle = document.querySelector('.open-content__title');
 const initialCards = [
   {
     title: 'Архыз',
@@ -92,23 +94,16 @@ function handleProfileFormSubmit(evt) {
 formElementEdit.addEventListener('submit', handleProfileFormSubmit);
 
 function handleCardClick(title, image) {
-  const popupImage = document.querySelector('.popup-image');
-  const openImage = document.querySelector('.open-content__image');
-  const openTitle = document.querySelector('.open-content__title');
   openImage.src = image;
   openImage.alt = title;
   openTitle.textContent = title;
   openPopup(popupImage);
 };
 
-//активация лайка
-function handleToggleLike(evt) {
-  evt.target.classList.toggle('element__like-active');
-};
 
-function handleDeleteCard(card) {
-  card.remove();
-};
+
+
+
 
 //открытие add-form
 popupOpenAdd.addEventListener('click', function () {
@@ -133,7 +128,7 @@ import Card from './Card.js';
 //создание разметки карточки 
 
 function createCard(item) {
-  const card = new Card(item, '#element', handleCardClick, handleToggleLike, handleDeleteCard);
+  const card = new Card(item, '#element', handleCardClick);
   const cardElement = card.generateCard();
   return cardElement;
   

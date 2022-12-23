@@ -1,13 +1,11 @@
 
 
 class Card {
-  constructor(data, templateSelector, handleCardClick, handleToggleLike, handleDeleteCard) {
+  constructor(data, templateSelector, handleCardClick) {
     this._title = data.title;
     this._image = data.image;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
-    this._handleToggleLike = handleToggleLike;
-    this._handleDeleteCard = handleDeleteCard;
   }
 
   //слушатели 
@@ -16,12 +14,23 @@ class Card {
       this._handleToggleLike(evt);
     });
     this._element.querySelector('.element__delete').addEventListener('click', () => {
-      this._handleDeleteCard(this._element)
+      this._handleDeleteCard();
     });
     elementImage.addEventListener('click', () => {
-      this._handleCardClick(this._title, this._image)
+      this._handleCardClick(this._title, this._image);
     });
   }
+
+
+  _handleToggleLike(evt) {
+    evt.target.classList.toggle('element__like-active');
+  }
+
+
+ _handleDeleteCard() {
+  this._element.remove();
+  }
+
 
   //  клонируем элемент
   _getTemplate() {
