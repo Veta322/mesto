@@ -102,9 +102,6 @@ function handleCardClick(title, image) {
 
 
 
-
-
-
 //открытие add-form
 popupOpenAdd.addEventListener('click', function () {
   titleInput.value = '';
