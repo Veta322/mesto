@@ -1,15 +1,18 @@
 
 
 class Card {
-  constructor(data, templateSelector, handleCardClick) {
+  constructor({ data, handleCardClick }, cardSelector) {
+    this._cardSelector = cardSelector;
     this._title = data.title;
-    this._image = data.image;
-    this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
+    this._image = data.image;
   }
 
   //слушатели 
-  _setEventListeners(elementImage) {
+  _setEventListeners() {
+
+    const elementImage = this._element.querySelector('.element__image');
+
     this._element.querySelector('.element__like').addEventListener('click', (evt) => {
       this._handleToggleLike(evt);
     });
@@ -27,16 +30,16 @@ class Card {
   }
 
 
- _handleDeleteCard() {
-  this._element.remove();
+  _handleDeleteCard() {
+    this._element.remove();
   }
 
 
   //  клонируем элемент
   _getTemplate() {
-    
+
     const cardElement = document
-      .querySelector(this._templateSelector)
+      .querySelector(this._cardSelector)
       .content
       .querySelector('.element')
       .cloneNode(true);
@@ -50,7 +53,7 @@ class Card {
     this._element = this._getTemplate();
     const elementImage = this._element.querySelector('.element__image');
 
-    this._setEventListeners(elementImage);
+    this._setEventListeners();
 
     // Добавим данные
     this._element.querySelector('.element__title').textContent = this._title;
