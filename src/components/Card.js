@@ -24,12 +24,12 @@ class Card {
     });
   }
 
-
+//активация лайка
   _handleToggleLike(evt) {
     evt.target.classList.toggle('element__like-active');
   }
 
-
+//активация удаления
   _handleDeleteCard() {
     this._element.remove();
   }

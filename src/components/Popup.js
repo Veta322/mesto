@@ -5,32 +5,39 @@ class Popup {
        this._popup = document.querySelector(popupSelector);
    }
 
+   //открытие попапа
    open() {
     this._popup.classList.add('popup_open');
 
     document.addEventListener('keydown', this._handleEscClose.bind(this));
-    document.addEventListener('click', this._closePopupMousedown.bind(this));
+    document.addEventListener('click', this._closePopupOverlay.bind(this));
 }
 
+
+//закрытие попапа
 close() {
     this._popup.classList.remove('popup_open');
     
     document.removeEventListener('keydown', this._handleEscClose.bind(this));
-    document.removeEventListener('click', this._closePopupMousedown.bind(this));
+    document.removeEventListener('click', this._closePopupOverlay.bind(this));
 }
 
+//закрытие по esc
 _handleEscClose(evt) {
     if (evt.key === 'Escape') {
         this.close();
     }
 }
 
-_closePopupMousedown(evt) {
-    if (evt.target.classList.contains('popup_open')) { 
+//закрытие по оверлей
+_closePopupOverlay(evt) {
+    if (evt.target.classList.contains('popup__content')) { 
         this.close();
     }
 }
 
+
+//добавление слушателя к кнопке закрытия 
 setEventListeners() {
     const closeButton = this._popup.querySelector('.popup__close');
 
@@ -39,6 +46,7 @@ setEventListeners() {
    });
 }
 
+//возвращение попапа
 takePopup() {
     return this._popup;
 }

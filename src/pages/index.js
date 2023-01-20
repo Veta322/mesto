@@ -1,3 +1,5 @@
+// импорт стилей
+import './index.css'; 
 
 //импорт компонентов 
 import Card from '../components/Card.js';
@@ -48,19 +50,19 @@ const CardList = new Section({
 		const card = renderCard(item, '#element');
 
 		const cardElement = card.generateCard();
-		CardList.setItem(cardElement);
+		CardList.addItem(cardElement);
 	},
 }, elements
 );
 
-CardList.addItem();
+CardList.renderItems();
 
 const addCard = new PopupWithForm({
 	popupSelector: popupAddCard,
 	handleFormSubmit: (value) => {
 		const card = renderCard({ title: value.title, image: value.link }, '#element');
 
-		CardList.setItem(card.generateCard());
+		CardList.addItem(card.generateCard());
 		addCard.close();
 	},
 });

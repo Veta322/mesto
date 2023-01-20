@@ -6,12 +6,16 @@ export default class Section {
     this._container = document.querySelector(containerSelector);
   }
 
-  addItem() {
-    this._renderedItems.forEach(item => 
-      this._renderer(item));
-  }
-
-  setItem(element) {
+  //добавление
+  addItem(element) {
     this._container.prepend(element);
   }
+//отрисовка
+  renderItems() {
+    this._renderedItems.forEach(item => {
+      this._renderer(item);
+    });
+  }
+
+
 };

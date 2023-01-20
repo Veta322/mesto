@@ -7,7 +7,7 @@ class PopupWithImage extends Popup {
       this._popupTitle = this._popup.querySelector('.open-content__title');
       this._popupFullImage = this._popup.querySelector('.open-content__image');
     }
-
+ //при открытие присваивание значений 
     open(name, link) {
       super.open();
       this._popupTitle.textContent = name;

@@ -4,6 +4,7 @@ class UserInfo {
         this._userJob = userJob;
     }
 
+    //получение значений
     getUserInfo() {
         const userInformation = {
             name: this._userName.textContent,
@@ -13,6 +14,7 @@ class UserInfo {
         return userInformation;
     }
 
+    //присваивание значений 
     setUserInfo(name, job) {
         this._userName.textContent = name;
         this._userJob.textContent = job;
