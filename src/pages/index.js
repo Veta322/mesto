@@ -44,33 +44,32 @@ const renderCard = function (data, cardSelector) {
 	}, cardSelector);
 }
 
-const CardList = new Section({
+const cardList = new Section({
 	data: initialCards,
 	renderer: (item) => {
 		const card = renderCard(item, '#element');
 
 		const cardElement = card.generateCard();
-		CardList.addItem(cardElement);
+		cardList.addItem(cardElement);
 	},
 }, elements
 );
 
-CardList.renderItems();
+cardList.renderItems();
 
 const addCard = new PopupWithForm({
 	popupSelector: popupAddCard,
 	handleFormSubmit: (value) => {
 		const card = renderCard({ title: value.title, image: value.link }, '#element');
 
-		CardList.addItem(card.generateCard());
+		cardList.addItem(card.generateCard());
 		addCard.close();
 	},
 });
 
 addButton.addEventListener('click', () => {
 	addCard.open();
-	addCardForm.title.value = '';
-	addCardForm.link.value = '';
+	
 });
 
 const user = new UserInfo(userName, userJob);
