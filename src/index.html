@@ -10,21 +10,21 @@
 
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="./images/logo.svg" alt="туть должен быть логотип :(">
+    <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="туть должен быть логотип :(">
   </header>
   <main class="page__content">
     <section class="profile">
-      <img class="profile__avatar" src="./images/avatar.webp" alt="туть должен быть аватар :(">
+      <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="туть должен быть аватар :(">
       <div class="profile__info">
         <h1 class="profile__name">Валерочка</h1>
         <button class="button profile__edit" type="button">
-          <img class="profile__edit-icon" src="./images/pencil.svg" alt="карандашик">
+          <img class="profile__edit-icon" src="<%=require('./images/pencil.svg')%>" alt="карандашик">
         </button>
         <h2 class="profile__job">Исследователь гаража</h2>
       </div>
 
       <button class="button profile__add" type="button">
-        <img class="profile__add-icon" src="./images/plus.svg" alt="плюсик">
+        <img class="profile__add-icon" src="<%=require('./images/plus.svg')%>" alt="плюсик">
       </button>
 
     </section>
@@ -33,13 +33,13 @@
       <template id="element" class="elements-template_type_default">
         <div class="element">
           <button class="button element__delete" type="button">
-            <img class="element__delete-icon" src="./images/trash.svg" alt="мусорка">
+            <img class="element__delete-icon" src="<%=require('./images/trash.svg')%>" alt="мусорка">
           </button>
           <img class="element__image">
           <div class="element__description">
             <h2 class="element__title"></h2>
             <button class="button element__like" type="button">
-              <img class="element__like-icon" src="./images/heart.svg" alt="сердечко">
+              <img class="element__like-icon" src="<%=require('./images/heart.svg')%>" alt="сердечко">
             </button>
           </div>
          
@@ -55,7 +55,7 @@
   <section class="popup popup-edit">
     <div class="popup__content">
       <button class="button popup__close close-edit" type="button">
-        <img class="popup__close-icon" src="./images/Close.svg" alt="крестик">
+        <img class="popup__close-icon" src="<%=require('./images/Close.svg')%>" alt="крестик">
       </button>
       <form class="form form-edit" name="edit-info">
         <h2 class="form__heading">Редактировать профиль</h2>
@@ -89,7 +89,7 @@
   <section class="popup popup-add">
     <div class="popup__content">
       <button class="button popup__close close-add" type="button">
-        <img class="popup__close-icon" src="./images/Close.svg" alt="крестик">
+        <img class="popup__close-icon" src="<%=require('./images/Close.svg')%>" alt="крестик">
       </button>
       <form class="form form-add" name="add-content">
         <h2 class="form__heading">Новое место</h2>
@@ -122,7 +122,7 @@
   <section class="popup popup-image">
     <div class="popup__content popup__content_image">
       <button class="button popup__close close-image" type="button">
-        <img class="popup__close-icon" src="./images/Close.svg" alt="крестик">
+        <img class="popup__close-icon" src="<%=require('./images/Close.svg')%>" alt="крестик">
       </button>
       <div class="open-content">
         <img class="open-content__image">

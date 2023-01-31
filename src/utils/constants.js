@@ -1,5 +1,6 @@
 
 //массив элементов
+
 export const initialCards = [
   {
     title: 'Архыз',

@@ -102,3 +102,16 @@ elementFullImage.setEventListeners();
 editValidator.enableValidation();
 addValidator.enableValidation();
 
+fetch('https://mesto.nomoreparties.co/v1/cohort-59/cards', {
+  headers: {
+    authorization: '131e7fdb-149f-4853-99c1-5f7c0b1924bf'
+  }
+})
+  .then(res => res.json())
+  .then((result) => {
+    console.log(result);
+  });
+
+
+  // это GET запрос к ресурсу "https://example.com"
+
