@@ -79,7 +79,7 @@ const cardList = new Section({
 		const card = createCard(item, userData, '#element');
 
 		const cardElement = card.generateCard();
-		cardList.setItem(cardElement);
+		cardList.serverItem(cardElement);
 	},
 }, elements
 );
@@ -99,7 +99,6 @@ Promise.all(promises)
 		editButton.addEventListener('click', () => {
 			
 			editValidator.enablePopupSubmitButton();
-			editProfileForm.reset();
 			editProfile.open();
 			const userData = user.getUserInfo();
 			editProfileForm.name.value = userData.name;
@@ -108,7 +107,6 @@ Promise.all(promises)
 		//обновление аватара
 		avatarButton.addEventListener('click', () => {
 			avatarValidator.enablePopupSubmitButton();
-			avatarEditForm.reset();
 			avatarProfile.open();
 			avatarEditForm.link.value = user.getUserInfo().avatar;
 		});
@@ -116,10 +114,7 @@ Promise.all(promises)
 		//добавление карточки
 		addButton.addEventListener('click', () => {
 			addValidator.disabledPopupSubmitButton();
-			addCardForm.reset();
 			addCard.open();
-			addCardForm.title.value = '';
-			addCardForm.link.value = '';
 		});
 	})
 	.catch((error) => {
@@ -127,14 +122,13 @@ Promise.all(promises)
 	})
 
 	//ux кнопок
-function renderLoading(popup, isLoading) {
-	const popupFormButton = document.querySelector(popup).querySelector('.popup__save');
-
+function renderLoading(evt, isLoading) {
+	
 	if (isLoading) {
-		popupFormButton.textContent = 'Сохранение...';
+		evt.submitter.textContent = 'Сохранение...';
 	}
 	else {
-		popupFormButton.textContent = 'Сохранить';
+		evt.submitter.textContent = 'Сохранить';
 	}
 }
 
@@ -142,23 +136,28 @@ function renderLoading(popup, isLoading) {
 //добавление карточки пользователем
 const addCard = new PopupWithForm({
 	popupSelector: popupAddCard,
-	handleFormSubmit: (value) => {
-		renderLoading(popupAddCard, true);
+	handleFormSubmit: (evt, value) => {
+		renderLoading(evt, true);
 		api.addNewCard({
 			name: value.title,
 			link: value.link
 		})
 			.then(data => {
 				const card = createCard(data, user.getUserInfo(), '#element');
-
 				cardList.setItem(card.generateCard());
 				addCard.close();
-				renderLoading(popupAddCard, false);
+				
 			})
 			.catch((error) => {
 				console.log(error)
-			});
+			})
+
+			.finally(() => {
+				renderLoading(evt, false)
+	});
+	
 	},
+	
 });
 
 //удаление карточки
@@ -179,18 +178,19 @@ const delCard = new PopupWithSubmit({
 //обновление аватара
 const avatarProfile = new PopupWithForm({
 	popupSelector: popupAvatarEdit,
-	handleFormSubmit: (value) => {
-		renderLoading(popupAvatarEdit, true)
+	handleFormSubmit: (evt, value) => {
+		renderLoading(evt, true)
 		api.editAvatar( {avatar: value.link} )
 			.then(data => {
 				user.setUserInfo(data._id, data.name, data.about, data.avatar);
 				avatarProfile.close();
-				renderLoading(popupAvatarEdit, false);
 			})
 			.catch((error) => {
-				// при ошибке тоже лучше прятать лоадинг (не забыть про другие места)
 				console.log(error)
-			});
+			})
+			.finally(() => {
+				renderLoading(evt, false)
+	});
 	}
 });
 
@@ -204,17 +204,20 @@ const user = new UserInfo({
 //обновление информации
 const editProfile = new PopupWithForm({
 	popupSelector: popupEditProfile,
-	handleFormSubmit: (value) => {
-		renderLoading(popupEditProfile, true);
+	handleFormSubmit: (evt, value) => {
+		renderLoading(evt, true);
 		api.sendUserInfo({ name: value.name, about: value.job })
 			.then(data => {
 				user.setUserInfo(data._id, data.name, data.about, data.avatar);
 				editProfile.close();
-				renderLoading(popupEditProfile, false);
 			})
 			.catch((error) => {
 				console.log(error)
-			});
+			})
+
+			.finally(() => {
+				renderLoading(evt, false)
+	});
 	}
 });
 //валидация
