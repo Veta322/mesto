@@ -7,9 +7,10 @@ class PopupWithForm extends Popup {
     this._handleFormSubmit = handleFormSubmit;
     this._inputSelectors = this._popup.querySelectorAll('.form__item');
     this._form = this._popup.querySelector('.form');
+    this._popupFormButton = this._popup.querySelector('.popup__save');
+    this._popupFormButtonValue = this._popupFormButton.value;
   }
-
-
+  
 //получение значений с полей ввода 
   _getInputValues() {
     this._formValues = {};
@@ -26,11 +27,10 @@ class PopupWithForm extends Popup {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
     })
-
-   
     super.setEventListeners();
   }
 
+  //закрытие
   close() {
     super.close();
     this._form.reset();

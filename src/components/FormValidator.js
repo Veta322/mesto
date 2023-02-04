@@ -31,12 +31,12 @@ _checkInputValidity (inputElement) {
 	}
 
 //отключение кнопки
-_disabledPopupSubmitButton () {
+disabledPopupSubmitButton () {
   this._buttonElement.classList.add(this._setting.inactiveButtonClass);
   this._buttonElement.disabled = true;
 }
 //включение кнопки
-_enablePopupSubmitButton (){ 
+enablePopupSubmitButton (){ 
   this._buttonElement.classList.remove(this._setting.inactiveButtonClass);
   this._buttonElement.disabled = false;
 } 
@@ -45,9 +45,9 @@ _enablePopupSubmitButton (){
 //применение вкл и выкл кнопки
 _toggleButtonState () {
   if (this._hasInvalidInput()) {
-    this._disabledPopupSubmitButton ();
+    this.disabledPopupSubmitButton ();
   } else {
-    this._enablePopupSubmitButton ();
+    this.enablePopupSubmitButton ();
   }
 }
 
@@ -62,9 +62,7 @@ _hasInvalidInput() {
 _setEventListeners() {
   this._inputList = Array.from(this._formElement.querySelectorAll(this._setting.inputSelector));
   this._buttonElement = this._formElement.querySelector(this._setting.submitButtonSelector);
-
   this._toggleButtonState();
-
   this._inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       
@@ -77,10 +75,9 @@ _setEventListeners() {
 //создаём массив и обходим все формы
 
 enableValidation = () => {
-
   this._formElement.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    this._disabledPopupSubmitButton ();
+    this.disabledPopupSubmitButton ();
   });
 
   this._setEventListeners();

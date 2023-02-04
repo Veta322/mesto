@@ -14,7 +14,9 @@
   </header>
   <main class="page__content">
     <section class="profile">
-      <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="туть должен быть аватар :(">
+      <div class="profile__avatar">
+      <img class="profile__avatar-pic" src="<%=require('./images/avatar.jpg')%>" alt="туть должен быть аватар :(">
+    </div>
       <div class="profile__info">
         <h1 class="profile__name">Валерочка</h1>
         <button class="button profile__edit" type="button">
@@ -38,9 +40,12 @@
           <img class="element__image">
           <div class="element__description">
             <h2 class="element__title"></h2>
+            <div>
             <button class="button element__like" type="button">
               <img class="element__like-icon" src="<%=require('./images/heart.svg')%>" alt="сердечко">
             </button>
+            <div class="element__counter">0</div>
+          </div>
           </div>
          
         </div>
@@ -131,7 +136,41 @@
       </div>
   </section>
 
- 
+  <section class="popup popup-avatar">
+    <div class="popup__content">
+      <button class="button popup__close" type="button">
+        <img class="popup__close-icon" src="<%=require('./images/Close.svg')%>" alt="крестик">
+      </button>
+      <form class="form form-avatar" name="avatar-content">
+        <h2 class="form__heading">Обновить аватар</h2>
+        <fieldset class="form__input-container">
+          <input 
+          type="link" 
+          class="form__item form__item_type_title" 
+          name="link"
+          id="link" 
+          placeholder="Ссылка на картинку" 
+          required>
+          <span class="popup__error popup__error-add-title"></span>
+          <button type="submit" class="button popup__save popup__save-avatar">Сохранить</button>
+        </fieldset>
+      </form>
+    </div>
+  </section>
+
+  <section class="popup popup-delete">
+    <div class="popup__content">
+      <button class="button popup__close " type="button">
+        <img class="popup__close-icon" src="<%=require('./images/Close.svg')%>" alt="крестик">
+      </button>
+     
+      <form class="form form-delete" name="delete-content">
+        <h2 class="form__heading form__heading-delete">Вы уверены?</h2>
+     
+          <button type="submit" class="button popup__save popup__submit">Да</button>
+      </form>
+    </div>
+  </section>
  
 
   

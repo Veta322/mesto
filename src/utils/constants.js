@@ -1,36 +1,9 @@
 
-//массив элементов
-
-export const initialCards = [
-  {
-    title: 'Архыз',
-    image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    title: 'Челябинская область',
-    image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    title: 'Иваново',
-    image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    title: 'Камчатка',
-    image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    title: 'Холмогорский район',
-    image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    title: 'Байкал',
-    image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
 
 //дефолтные данные прописанные в html
 export const userName = document.querySelector('.profile__name');
 export const userJob = document.querySelector('.profile__job');
+export const profileAvatar = document.querySelector('.profile__avatar-pic');
 
 //блок с элементами
 export const elements = '.elements';
@@ -38,18 +11,21 @@ export const elements = '.elements';
 //кнопки открытия попапов
 export const addButton = document.querySelector('.profile__add');
 export const editButton = document.querySelector('.profile__edit');
-
+export const avatarButton = document.querySelector('.profile__avatar');
 
 
 //попапы
 export const popupEditProfile ='.popup-edit'; 
 export const popupAddCard = '.popup-add'; 
 export const fullImage = '.popup-image';
+export const popupAvatarEdit = '.popup-avatar';
+export const popupSubmit = '.popup-delete';
 
 
 //формы
 export const editProfileForm = document.querySelector(popupEditProfile).querySelector('.form');
 export const addCardForm = document.querySelector(popupAddCard).querySelector('.form');
+export const avatarEditForm = document.querySelector(popupAvatarEdit).querySelector('.form');
 
 //настройки
 export const config = ({
@@ -60,3 +36,7 @@ export const config = ({
   inputErrorClass: 'form__item_error',
   errorClass: 'popup__error_active',
 });
+
+//api
+export const url = "https://mesto.nomoreparties.co/v1/cohort-59";
+export const token = '131e7fdb-149f-4853-99c1-5f7c0b1924bf';
